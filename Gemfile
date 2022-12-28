@@ -6,9 +6,13 @@ ruby '2.7.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.8', '>= 5.2.8.1'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 # Use Puma as the app server
+
 gem 'puma', '~> 3.11'
+gem 'devise'
+gem 'devise-bootstrap-views', '~> 1.0'
+gem 'twitter-bootstrap-rails'
+gem 'jquery-rails'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -32,11 +36,12 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
+gem 'therubyracer'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
+  gem 'sqlite3'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
@@ -56,6 +61,10 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
+end
+
+group :production do
+  gem "pg"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
